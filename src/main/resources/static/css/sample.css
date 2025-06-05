@@ -1,0 +1,64 @@
+/* ログイン画面を画面中央に配置 */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* form の内側整理 */
+.card form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.card label {
+  margin-top: 10px;
+}
+
+.card input {
+  width: 100%;
+}
+
+main.center-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh; /* 少し下げてみる */
+  padding: 20px;
+}
+
+/* ユーザ登録画面の中央寄せ */
+main.register-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 20px;
+}
+
+/* ユーザ登録フォームの見た目 */
+.register-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.register-card label {
+  margin-top: 10px;
+}
+
+.register-card input {
+  width: 100%;
+}

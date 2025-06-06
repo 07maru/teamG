@@ -47,7 +47,7 @@
                 <input type="hidden" name="albumId" th:value="${album.albumId}">
                 <button type="submit">お気に入り解除</button>
             </form>
-            <form th:unless="${music.isFavorite}" method="post">
+            <form th:unless="${music.isFavorite}" th:action="@{/favorites}" method="post">
                     <input type="hidden" name="musicId" th:value="${music.musicId}">
                     <input type="hidden" name="albumId" th:value="${album.albumId}">
                     <button type="submit">お気に入り</button>

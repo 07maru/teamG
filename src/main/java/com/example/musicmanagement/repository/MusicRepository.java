@@ -20,6 +20,18 @@ public class MusicRepository {
         musicMapper.insertMusic(music);
     }
 
+    public void deleteMusicById(long musicId) {
+        musicMapper.deleteMusicById(musicId);
+    }
+
+    public void updateMusic(Music music) {
+        musicMapper.updateMusic(music);
+    }
+
+    public Music selectMusicById(long musicId) {
+        return musicMapper.selectMusicById(musicId);
+    }
+
      public List<MusicViewModel> selectMusicsWithFavorite(long albumId, long userId) {
         return musicMapper.selectMusicsWithFavorite(albumId, userId);
     }

@@ -3,6 +3,8 @@ package com.example.musicmanagement.mapper;
 import com.example.musicmanagement.entity.Music;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 
@@ -19,6 +21,12 @@ public interface MusicMapper {
     @Insert("INSERT INTO musics (title, duration, album_id) VALUES (#{title}, #{duration}, #{albumId})")
     @Options(useGeneratedKeys = true, keyProperty = "musicId")
     void insertMusic(Music music);
+    @Delete("DELETE FROM musics WHERE music_id = #{musicId}")
+    void deleteMusicById(long musicId);
+    @Update("UPDATE musics SET title = #{title}, duration = #{duration} WHERE music_id = #{musicId}")
+    void updateMusic(Music music);
+    @Select("SELECT * FROM musics WHERE music_id = #{musicId}")
+    Music selectMusicById(long musicId);
 
      @Select("""
             SELECT

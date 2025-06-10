@@ -30,6 +30,21 @@ public class MusicService {
         musicRepository.insertMusic(music);
     }
 
+    public void deleteMusic(long musicId) {
+        musicRepository.deleteMusicById(musicId);
+    }
+
+    public Music getMusicById(long musicId) {
+        return musicRepository.selectMusicById(musicId);
+    }
+
+    public void updateMusic(long musicId, Music music) {
+        if (musicId != music.getMusicId()) {
+            throw new IllegalArgumentException("Music ID does not match");
+        }
+        musicRepository.updateMusic(music);
+    }
+
     public List<MusicViewModel> selectMusicsWithFavorite(long albumId, long userId){
         return musicRepository.selectMusicsWithFavorite(albumId, userId);
         

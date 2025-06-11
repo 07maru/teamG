@@ -5,13 +5,14 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 /* form の内側整理 */
 .card form {
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 100%;
+  color: #79A1D4;
+  font-family:cursive;
 }
 
 .card label {

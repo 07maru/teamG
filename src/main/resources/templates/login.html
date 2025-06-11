@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head th:replace="layout :: head('ログイン')"></head>
+<style>
+  body{
+    background-color:#FFEED5;
+  }
+  .card{
+    background-color:#ffffff;
+    border-color:#ffd99f;
+    border-width:0.54ch;
+    width: 400px;
+    height: 290px;
+  }
+  .login{
+    color:#79A1D4;
+    text-align: center;
+    font-family:cursive;
+  }
+  .form-control{
+    border-color:#9FBCDF;
+  }
+  .button{
+    background-color: #ABCAE8;
+    border-color:#9FBCDF;
+    color:#ffffff;
+  }
+  .button:hover{
+    opacity: 1.4;
+    cursor: pointer;
+    text-decoration: none;
+    background-color:#66a5e4;
+    color: #ffffff;
+  }
+</style>
 <body>
   <div th:replace="layout :: header"></div>
 
   <main class="center-content">
     <div class="card">
-      <h2>ログイン</h2>
-
+      <div class="login">
+      <h2>----- Sign In -----</h2>
+      </div>
       <div th:if="${param.error}" style="color:red;">
         ユーザ名、またはパスワードが違います
       </div>
@@ -16,13 +49,13 @@
       </div>
 
       <form th:action="@{/login}" method="post">
-        <label for="username">ユーザ名：</label>
-        <input type="text" id="username" name="username" />
+        <label for="username">👤Username</label>
+        <input type="text" id="username" name="username" class="form-control"/>
 
-        <label for="password">パスワード：</label>
-        <input type="password" id="password" name="password" />
+        <label for="password">🔒Password</label>
+        <input type="password" id="password" name="password" class="form-control" />
 
-        <button type="submit">ログイン</button>
+        <button type="submit" class="btn button">Sign In</button>
       </form>
     </div>
   </main>

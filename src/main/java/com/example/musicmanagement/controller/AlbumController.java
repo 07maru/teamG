@@ -5,10 +5,13 @@ package com.example.musicmanagement.controller;
  import org.springframework.stereotype.Controller;
  import org.springframework.ui.Model;
  import org.springframework.web.bind.annotation.GetMapping;
+ import org.springframework.web.bind.annotation.ModelAttribute;
  import org.springframework.web.bind.annotation.PathVariable;
  import org.springframework.web.bind.annotation.RequestMapping;
  import com.example.musicmanagement.form.AlbumForm;
- import org.springframework.web.bind.annotation.PostMapping;
+
+
+import org.springframework.web.bind.annotation.PostMapping;
  import com.example.musicmanagement.entity.Music;
  import com.example.musicmanagement.service.MusicService;
  import com.example.musicmanagement.form.MusicForm;
@@ -31,14 +34,22 @@ package com.example.musicmanagement.controller;
        this.musicService = musicService;
 
    }
-
+    //アルバム一覧（全件）
     @GetMapping
-   public String albums(Model model) {
-       List<Album> albums = albumService.getAllAlbums();
-       model.addAttribute("albums", albums);
+   public String albums(
+        @RequestParam (value = "keyword" , required = false) String keyword,
+        Model model) {
+       List<Album> albums;  
+            if(keyword != null && !keyword.isEmpty()){
+                albums = albumService.searchAlbums(keyword);
+            }else {
+                albums = albumService.getAllAlbums();
+            }
+       model.addAttribute("albums", albums);    
        return "album/album-list";
    }
 
+    //新規登録フォーム
     @GetMapping("/new")
    public String albumForm(Model model) {
        AlbumForm albumForm = new AlbumForm();

@@ -33,4 +33,10 @@ package com.example.musicmanagement.repository;
     public void updateAlbum(Album album){
         albumMapper.updateAlbum(album);
     }
+
+    public List<Album> searchAlbums(String keyword){
+        return  albumMapper.searchAlbumsbyKeyword(keyword);
+    }
+   
  }
+

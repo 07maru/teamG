@@ -19,6 +19,10 @@ package com.example.musicmanagement.service;
        return albumRepository.getAllAlbums();
    }
 
+   public  List<Album> searchAlbums(String keyword){
+        return albumRepository.searchAlbums(keyword);
+   }
+
     public void createAlbum(AlbumForm albumForm) {
        Album album = new Album();
        album.setTitle(albumForm.getTitle());
@@ -41,4 +45,6 @@ package com.example.musicmanagement.service;
         }
         albumRepository.updateAlbum(album);
     }
+
+    
  }

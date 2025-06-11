@@ -4,6 +4,10 @@
  <body>
    <div th:replace="~{layout :: header}"></div>
    <h3>アルバム一覧</h3>
+    <form method="get" th:action="@{/albums}">
+        <input type ="text" name = "keyword" th:value="${keyword}" placeholder="タイトルまたはアーティスト名で検索">
+        <button tpe="submit">検索</button>
+   
    <table>
        <thead>
        <tr>

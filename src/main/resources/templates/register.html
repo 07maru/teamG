@@ -1,17 +1,83 @@
 <!DOCTYPE html>
  <html lang="ja" xmlns:th="http://www.thymeleaf.org">
  <head th:replace="~{layout :: head(ユーザ登録)}"></head>
+ <style>
+  body{
+    background-color:#FFEED5;
+  }
+ 
+  h3 {
+  font-size: 40px;
+  font-family:monospace;
+  font-weight: bold;
+  display: inline;
+  background: linear-gradient(transparent 85%, #c6b7d5 100%);
+  color: #79A1D4;
+}
+
+  .form-container {
+    width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color:#ffffff;
+    border: 3px solid;
+    border-color:#ffd99f;
+    border-width:0.54ch;
+  }
+
+
+
+  label {
+    display: block;
+    font-family:cursive;
+    color: #79A1D4;
+  }
+ input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    border: 2px solid #9FBCDF;
+    margin-top: 5px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: monospace;
+  }
+ 
+
+button {
+  width: 60%;
+  background-color: #ABCAE8;
+  color: #ffffff;
+  padding: 8px;
+  border-color: #9FBCDF;
+  border-width: 4px;
+  font-size: 17px;
+  font-family: monospace;
+  border-radius: 10px;
+  display: block; 
+  margin: 16px auto 0;    
+  cursor: pointer;
+}
+
+
+
+ </style>
+
  <body>
     <div th:replace="~{layout :: header}"></div>
-    <h3>ユーザ登録</h3>
+    
+    <div class="form-container">
+    <h3> 🎵 ユーザ登録 🎵</h3>
+    
     <form th:action="@{/register}" th:object="${userForm}" method="post">
         <div>
-            <label for="username">ユーザ名：</label>
+            <label for="username">👤Username:</label>
             <input type="text" id="username" name="username" th:field="*{username}">
             
         </div>
         <div>
-            <label for="password">パスワード：</label>
+            <label for="password">🔒Password:</label>
             <input type="password" id="password" name="password" th:field="*{password}">
         </div>
         <button type="submit">登録</button>
@@ -23,6 +89,7 @@
     </div>
         
     </form>
+    </div>
     <div th:replace="~{layout :: footer}"></div>
  </body>
  </html>

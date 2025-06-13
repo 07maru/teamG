@@ -38,10 +38,12 @@ import org.springframework.web.bind.annotation.PostMapping;
     @GetMapping
    public String albums(
         @RequestParam (value = "keyword" , required = false) String keyword,
+        @RequestParam (value = "sortBy" , required = false, defaultValue = "release_date") String sortBy,
+        @RequestParam (value = "sortOrder" , required = false, defaultValue = "asc") String sortOrder,
         Model model) {
        List<Album> albums;  
             if(keyword != null && !keyword.isEmpty()){
-                albums = albumService.searchAlbums(keyword);
+                albums = albumService.searchAlbums(keyword, sortBy, sortOrder);
             }else {
                 albums = albumService.getAllAlbums();
             }

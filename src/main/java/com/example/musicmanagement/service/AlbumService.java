@@ -19,7 +19,20 @@ package com.example.musicmanagement.service;
        return albumRepository.getAllAlbums();
    }
 
-   public  List<Album> searchAlbums(String keyword){
+   public  List<Album> searchAlbums(String keyword, String sortBy, String sortOrder){
+    if (sortBy.equals("release_date")) {
+        if (sortOrder.equals("asc")) {
+            return albumRepository.searchASCAlbums(keyword);
+        } else {
+            return albumRepository.searchDESCAlbums(keyword);
+        }
+    } else if (sortBy.equals("title")) {
+        if (sortOrder.equals("asc")) {
+            return albumRepository.searchTitleASCAlbums(keyword);
+        } else {
+            return albumRepository.searchTitleDESCAlbums(keyword);
+        }
+    }
         return albumRepository.searchAlbums(keyword);
    }
 

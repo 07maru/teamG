@@ -6,6 +6,14 @@
    <h3>アルバム一覧</h3>
     <form method="get" th:action="@{/albums}">
         <input type ="text" name = "keyword" th:value="${keyword}" placeholder="タイトルまたはアーティスト名で検索">
+        <select name="sortBy" class="form-control">
+            <option value="release_date" th:selected="${param.sortBy?.toString() == 'release_date'}">リリース日</option>
+            <option value="title" th:selected="${param.sortBy?.toString() == 'title'}">タイトル</option>
+        </select>
+        <select name="sortOrder" class="form-control">
+            <option value="asc" th:selected="${param.sortOrder?.toString() == 'asc'}">昇順</option>
+            <option value="desc" th:selected="${param.sortOrder?.toString() == 'desc'}">降順</option>
+        </select>
 
         //ソートボタンの追加
         <button tpe="submit">検索</button>

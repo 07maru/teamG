@@ -87,7 +87,12 @@
     width: 80%;
 }
 
-
+.button-group{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-right: 5px;
+}
 
 
 
@@ -136,6 +141,7 @@
          <td><span th:text="${music.title}">music title</span></td>
          <td><span th:text="${#temporals.format(music.duration, 'HH:mm:ss')}">music duration</span></td>
          <td>
+            <div class="button-group">
             <form th:action="@{/albums/{albumId}/musics/{musicId}/edit(albumId=${album.albumId}, musicId=${music.musicId})}" method="get">
                 <button type="submit" class="btn-edit">編集</button>
             </form>
@@ -152,8 +158,9 @@
             <form th:unless="${music.isFavorite}" th:action="@{/favorites}" method="post">
                     <input type="hidden" name="musicId" th:value="${music.musicId}">
                     <input type="hidden" name="albumId" th:value="${album.albumId}">
-                    <button type="submit" class="btn-favorite">お気に入り</button>
+                    <button type="submit" class="btn-favorite">💗</button>
             </form>
+            </div>
          </td>
     </tr>      
  </table>

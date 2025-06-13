@@ -49,6 +49,6 @@ import java.util.List;
        userService.createUser(userForm);
 
        redirectAttributes.addFlashAttribute("successMessage","ユーザ登録が完了しました！");
-        return "redirect:/register";
+        return "redirect:/list";
     }
  }

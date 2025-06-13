@@ -10,15 +10,35 @@
     border-color:#ffd99f;
     border-width:0.54ch;
     width: 400px;
-    height: 320px;
+    height: 370px;
+    border-radius: 15px;
+    margin: 40px auto;
+    padding: 20px;
   }
   .login{
     color:#79A1D4;
     text-align: center;
     font-family:cursive;
   }
+  label {
+    display: block;
+    font-family:cursive;
+    color: #79A1D4;
+  }
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    border: 2px solid #9FBCDF;
+    margin-top: 5px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-family: monospace;
+  }
+
   .form-control{
-    border-color:#9FBCDF;
+    border: 2px solid #9FBCDF;
   }
   button{
     width: 60%;
@@ -31,6 +51,9 @@
     font-family:monospace;
     margin: auto;
     border-radius: 10px;
+    display: block; 
+    margin: 16px auto 0;    
+    cursor: pointer;
   }
   h2 {
   font-size: 40px;
@@ -57,12 +80,14 @@
       </div>
 
       <form th:action="@{/login}" method="post">
+      <div>
         <label for="username">👤Username</label>
         <input type="text" id="username" name="username" class="form-control"/>
-
+      </div>
+      <div>
         <label for="password">🔒Password</label>
         <input type="password" id="password" name="password" class="form-control" />
-
+      </div>
         <button type="submit" >Sign In</button>
       </form>
     </div>

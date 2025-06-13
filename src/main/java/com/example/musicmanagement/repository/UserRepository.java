@@ -19,4 +19,8 @@ package com.example.musicmanagement.repository;
     public void insertUser(User user){
         userMapper.insertUser(user);
     }
+
+    public boolean existsByUsername(String username){
+        return userMapper.existsByUsername(username) > 0;
+    }
  }

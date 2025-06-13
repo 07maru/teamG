@@ -2,7 +2,9 @@ package com.example.musicmanagement.controller;
 
  import com.example.musicmanagement.form.UserForm;
  import com.example.musicmanagement.service.UserService;
- import org.springframework.stereotype.Controller;
+
+import org.springframework.dao.DuplicateKeyException;
+import org.springframework.stereotype.Controller;
  import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -17,6 +19,7 @@ import java.util.List;
 @Controller
  public class RegistrationController {
     private final UserService userService;
+
     public RegistrationController(UserService userService) {
         this.userService = userService;
     }
@@ -46,9 +49,16 @@ import java.util.List;
         }
 
        //登録処理
-       userService.createUser(userForm);
-
-       redirectAttributes.addFlashAttribute("successMessage","ユーザ登録が完了しました！");
+       try{
+        userService.createUser(userForm);
+        redirectAttributes.addFlashAttribute("successMessage","ユーザ登録が完了しました！");
+       } catch (DuplicateKeyException e) { 
+         errors.add("そのユーザー名は既に存在します: " + userForm.getUsername());
+            model.addAttribute("errors", errors);
+            model.addAttribute("userForm", userForm);
+        return "register";
+       }
+       
         return "redirect:/list";
     }
  }

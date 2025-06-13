@@ -78,16 +78,25 @@
       <div class="login">
         <h2>🎵 ユーザ登録 🎵</h2>
       </div>
+      
 
       <form th:action="@{/register}" th:object="${userForm}" method="post">
         <div>
           <label for="username">👤Username:</label>
           <input type="text" id="username" name="username" th:field="*{username}" class="form-control">
+          <div th:if="${#fields.hasErrors('username')}" class="error-message" th:errors ="*{username}"></div>
         </div>
         <div>
           <label for="password">🔒Password:</label>
           <input type="password" id="password" name="password" th:field="*{password}" class="form-control">
+          <div th:if="${#fields.hasErrors('password')}" class="error-message" th:errors ="*{password}"></div>
         </div>
+        <div th:if="${errors}">
+        <div th:each="error : ${errors}" class="error-message" th:text="${error}"></div>
+      </div>
+      <div th:if="${successMessage}" class="success-message" th:text="${successMessage}"></div>
+
+        
         <button type="submit">登録</button>
       </form>
     </div>

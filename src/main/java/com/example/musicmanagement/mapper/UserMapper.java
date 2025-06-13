@@ -16,4 +16,7 @@ public interface UserMapper {
     @Insert("INSERT INTO users (username, password) VALUES (#{username}, #{password})")
     @Options(useGeneratedKeys = true, keyProperty = "userId")
     void insertUser(User user);
+
+    @Select("SELECT COUNT(*) FROM users WHERE username = #{username}")
+    int existsByUsername(String username);
 }

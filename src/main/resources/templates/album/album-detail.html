@@ -1,11 +1,105 @@
 <!DOCTYPE html>
  <html lang="ja" xmlns:th="http://www.thymeleaf.org">
  <head th:replace="~{layout :: head(アルバム詳細)}"></head>
+ <style>
+  body{
+    background-color:#FFEED5;
+  }
+.album-title{
+    font-size: 40px;
+    font-family:monospace;
+    font-weight: bold;
+    display: inline;
+    background: linear-gradient(transparent 85%, #c6b7d5 100%);
+    color: #79A1D4;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.music-title{
+   font-size: 34px;
+   font-family:monospace;
+   font-weight: bold;
+   display: inline;
+   background: linear-gradient(transparent 85%, #c6b7d5 100%);
+   color: #79A1D4; 
+   margin-top: 10px;
+   margin-bottom: 20px;
+}
+
+.album{
+   font-family:cursive;
+   color: #454545; 
+   font-size: 18px;
+}
+
+.music{
+   font-family:cursive;
+   color: #454545; 
+   font-size: 18px;
+   text-align: center;
+}
+
+.btn-edit{
+   background-color: #c6b7d5;
+   color: #ffffff;
+   border-color: #ab93c4;
+   font-size: 17px;
+   font-family: monospace;
+   display: block; 
+   margin: 16px auto 0;    
+   cursor: pointer;
+}
+.btn-delete{
+   background-color: #c6b7d5;
+   color: #ffffff;
+   border-color: #ab93c4;
+   font-size: 17px;
+   font-family: monospace;
+   display: block; 
+   margin: 16px auto 0;    
+   cursor: pointer;
+}
+.btn-favorite{
+   background-color: #c6b7d5;
+   color: #ffffff;
+   border-color: #ab93c4;
+   font-size: 17px;
+   font-family: monospace;
+   display: block; 
+   margin: 16px auto 0;    
+   cursor: pointer;
+}
+.btn-unfavorite{
+   background-color: #c6b7d5;
+   color: #ffffff;
+   border-color: #ab93c4;
+   font-size: 17px;
+   font-family: monospace;
+   display: block; 
+   margin: 16px auto 0;    
+   
+}
+
+.section-line {
+    border-top: 2px solid #79A1D4;
+    margin: 40px auto;
+    width: 80%;
+}
+
+
+
+
+
+
+
+  </style>
+ 
  <body>
  <div th:replace="~{layout :: header}"></div>
  <div th:if="${message}" th:text="${message}" style="color:blue">sample message</div>
- <h3>アルバム詳細</h3>
- <table>
+ <h3 class="album-title">🎵 アルバム詳細 🎵</h3>
+ <table class="album">
     <tr>
         <th>アルバムID</th>
         <td th:text="${album.albumId}"></td>
@@ -27,8 +121,9 @@
         <td th:text="${#temporals.format(album.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
     </tr>
  </table>
- <h3>楽曲一覧</h3>
- <table>
+ <div class="section-line"></div>
+ <h3 class="music-title">楽曲一覧</h3>
+ <table class="music">
     <tr>
         <th>お気に入り</th>
         <th>楽曲ID</th>
@@ -36,28 +131,28 @@
         <th>再生時間</th>
     </tr>
     <tr th:each="music : ${musics}">
-        <td><span th:text="${music.isFavorite ? '☆' : ''}"></span></td>
+        <td><span th:text="${music.isFavorite ? '💗' : ''}"></span></td>
          <td><span th:text="${music.musicId}">music id</span></td>
          <td><span th:text="${music.title}">music title</span></td>
          <td><span th:text="${#temporals.format(music.duration, 'HH:mm:ss')}">music duration</span></td>
          <td>
             <form th:action="@{/albums/{albumId}/musics/{musicId}/edit(albumId=${album.albumId}, musicId=${music.musicId})}" method="get">
-                <button type="submit">編集</button>
+                <button type="submit" class="btn-edit">編集</button>
             </form>
             <form th:action="@{/albums/{albumId}/musics/{musicId}/delete(albumId=${album.albumId}, musicId=${music.musicId})}" method="post">
-                <button type="submit">削除</button>
+                <button type="submit" class="btn-delete">削除</button>
             </form>
         </td>
          <td>
             <form th:if="${music.isFavorite}" th:action="@{/favorites/delete}" method="post">
                 <input type="hidden" name="musicId" th:value="${music.musicId}">
                 <input type="hidden" name="albumId" th:value="${album.albumId}">
-                <button type="submit">お気に入り解除</button>
+                <button type="submit" class="btn-unfavorite">お気に入り解除</button>
             </form>
             <form th:unless="${music.isFavorite}" th:action="@{/favorites}" method="post">
                     <input type="hidden" name="musicId" th:value="${music.musicId}">
                     <input type="hidden" name="albumId" th:value="${album.albumId}">
-                    <button type="submit">お気に入り</button>
+                    <button type="submit" class="btn-favorite">お気に入り</button>
             </form>
          </td>
     </tr>      

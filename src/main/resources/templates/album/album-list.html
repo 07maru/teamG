@@ -2,18 +2,66 @@
  <html lang="ja" xmlns:th="http://www.thymeleaf.org">
  <head th:replace="~{layout :: head(アルバム一覧)}"></head>
  <style>
+    body{
+    background-color:#FFEED5;
+    font-family:cursive;
+  }
+  h3{
+    font-family:monospace;
+    font-weight: bold;
+    display: inline;
+    background: linear-gradient(transparent 85%, #c6b7d5 100%);
+    color: #79A1D4;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .section-line {
+    border-top: 2px solid #79A1D4;
+    margin: 30px auto;
+    width: 40%;
+}
    .button-group{
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
     margin-right: 5px;
-}
+    }
+    table{
+    text-align: center;
+    background-color:#ffffff;
+    border-color:#ffd99f;
+    border-width:0.54ch;
+    width: 550px;
+    height: 370px;
+    border-radius: 15px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+  .button1{
+   background-color: #c6b7d5;
+   color: #ffffff;
+   border-color: #ab93c4;
+   font-size: 24px;
+   border-radius: 10px;
+   font-family: monospace;
+   display: block; 
+   margin: 5px auto 0;
+  }
+  .button2{
+   background-color: #c6b7d5;
+   color: #ffffff;
+   border-color: #ab93c4;
+   font-size: 17px;
+   font-family: monospace;
+   display: block; 
+   margin: 5px auto 0;
+  }
 
  </style>
  
  <body>
    <div th:replace="~{layout :: header}"></div>
-   <h3>アルバム一覧</h3>
+   <h3>🎵 アルバム一覧 🎵</h3>
     <form method="get" th:action="@{/albums}">
         <input type ="text" name = "keyword" th:value="${keyword}" placeholder="タイトルまたはアーティスト名で検索">
         <select name="sortBy" class="form-control">
@@ -25,8 +73,7 @@
             <option value="desc" th:selected="${param.sortOrder?.toString() == 'desc'}">降順</option>
         </select>
 
-        //ソートボタンの追加
-        <button tpe="submit">検索</button>
+        <button class="button1" tpe="submit">検索</button>
     </form>
    <table>
        <thead>
@@ -39,7 +86,8 @@
        </tr>
        </thead>
         <tbody>
-       <tr th:each="album : ${albums}">
+        
+       <tr class="section-line" th:each="album : ${albums}">
            <td><span th:text="${album.albumId}">album id</span></td>
            <td><a th:href="@{/albums/{albumId}(albumId=${album.albumId})}"><span th:text="${album.title}">album title</span></a></td>
            <td><span th:text="${album.artist}">album artist</span></td>
@@ -47,10 +95,10 @@
            <td>
             <div class="button-group">
              <form th:action="@{/albums/{albumId}/edit(albumId=${album.albumId})}" method="get">
-                    <button type="submit">編集</button>
+                    <button class="button2" type="submit">編集</button>
                 </form>
                 <form th:action="@{/albums/{albumId}/delete(albumId=${album.albumId})}" method="post">
-                    <button type="submit">削除</button>
+                    <button class="button2" type="submit">削除</button>
                 </form>
                 </div>
             </td>

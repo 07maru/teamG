@@ -1,6 +1,16 @@
 <!DOCTYPE html>
  <html lang="ja" xmlns:th="http://www.thymeleaf.org">
  <head th:replace="~{layout :: head(アルバム一覧)}"></head>
+ <style>
+   .button-group{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-right: 5px;
+}
+
+ </style>
+ 
  <body>
    <div th:replace="~{layout :: header}"></div>
    <h3>アルバム一覧</h3>
@@ -35,12 +45,14 @@
            <td><span th:text="${album.artist}">album artist</span></td>
            <td><span th:text="${album.releaseDate}">album releaseDate</span></td>
            <td>
+            <div class="button-group">
              <form th:action="@{/albums/{albumId}/edit(albumId=${album.albumId})}" method="get">
                     <button type="submit">編集</button>
                 </form>
                 <form th:action="@{/albums/{albumId}/delete(albumId=${album.albumId})}" method="post">
                     <button type="submit">削除</button>
                 </form>
+                </div>
             </td>
        </tr>
        </tbody>

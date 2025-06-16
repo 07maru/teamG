@@ -52,14 +52,35 @@
    margin: 10px auto 0;
   }
   .button2{
-   background-color: #c6b7d5;
+   background-color: #87bfff;
    color: #ffffff;
-   border-color: #ab93c4;
+   border-color: #6291ff;
    font-size: 17px;
    font-family: monospace;
    display: block;
-   margin: 5px auto 0;
+   margin: 3px auto 0;
   }
+   .button3{
+   background-color: #ff9494;
+   color: #ffffff;
+   border-color: #ff6868;
+   font-size: 17px;
+   font-family: monospace;
+   display: block;
+   margin: 3px auto 0;
+  }
+
+  .form-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.form-buttons .button1 {
+  margin: 0;
+  display: inline-block;
+}
 
  </style>
  
@@ -69,7 +90,7 @@
     <form method="get" th:action="@{/albums}">
         <input type ="text" name = "keyword" th:value="${keyword}" placeholder="タイトルまたはアーティスト名で検索">
 
-        <button class="button1" type="submit">検索</button>
+        <button class="button1" type="submit">🔍検索</button>
     </form>
     <form method="get" th:action="@{/albums}">
       <select name="sortBy" class="form-control">
@@ -102,10 +123,10 @@
            <td>
             <div class="button-group">
              <form th:action="@{/albums/{albumId}/edit(albumId=${album.albumId})}" method="get">
-                    <button class="button2" type="submit">編集</button>
+                    <button class="button2" type="submit">✏️編集</button>
                 </form>
                 <form th:action="@{/albums/{albumId}/delete(albumId=${album.albumId})}" method="post">
-                    <button class="button2" type="submit">削除</button>
+                    <button class="button3" type="submit">🗑️削除</button>
                 </form>
                 </div>
             </td>

@@ -33,20 +33,8 @@ import org.apache.ibatis.annotations.Insert;
     void updateAlbum(Album album);
 
     //キーワードでタイトルまたはアーティスト名を検索
-    @Select("SELECT * FROM albums WHERE title LIKE CONCAT('%', #{keyword}, '%') OR artist LIKE CONCAT('%',#{keyword}, '%') ORDER BY release_date ASC")
+    @Select("SELECT * FROM albums WHERE title LIKE CONCAT('%', #{keyword}, '%') OR artist LIKE CONCAT('%',#{keyword}, '%')")
     List<Album> searchAlbumsbyKeyword(String keyword);
-
-    @Select("SELECT * FROM albums WHERE title LIKE CONCAT('%', #{keyword}, '%') OR artist LIKE CONCAT('%',#{keyword}, '%') ORDER BY release_date ASC")
-    List<Album> searchASCAlbumsbyKeyword(String keyword);
-
-    @Select("SELECT * FROM albums WHERE title LIKE CONCAT('%', #{keyword}, '%') OR artist LIKE CONCAT('%',#{keyword}, '%') ORDER BY release_date DESC")
-    List<Album> searchDESCAlbumsbyKeyword(String keyword);
-
-    @Select("SELECT * FROM albums WHERE title LIKE CONCAT('%', #{keyword}, '%') OR artist LIKE CONCAT('%',#{keyword}, '%') ORDER BY title ASC")
-    List<Album> searchTitleASCAlbumsbyKeyword(String keyword);
-
-    @Select("SELECT * FROM albums WHERE title LIKE CONCAT('%', #{keyword}, '%') OR artist LIKE CONCAT('%',#{keyword}, '%') ORDER BY title DESC")
-    List<Album> searchTitleDESCAlbumsbyKeyword(String keyword);
 
     @Select("SELECT * FROM albums ORDER BY release_date ASC")
    List<Album> searchReleaseAllASCAlbums();

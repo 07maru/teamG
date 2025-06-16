@@ -38,22 +38,6 @@ package com.example.musicmanagement.repository;
         return  albumMapper.searchAlbumsbyKeyword(keyword);
     }
 
-    public List<Album> searchASCAlbums(String keyword){
-        return  albumMapper.searchASCAlbumsbyKeyword(keyword);
-    }
-
-    public List<Album> searchDESCAlbums(String keyword){
-        return  albumMapper.searchDESCAlbumsbyKeyword(keyword);
-    }
-
-    public List<Album> searchTitleASCAlbums(String keyword){
-        return  albumMapper.searchTitleASCAlbumsbyKeyword(keyword);
-    }
-
-    public List<Album> searchTitleDESCAlbums(String keyword){
-        return  albumMapper.searchTitleDESCAlbumsbyKeyword(keyword);
-    }
-
     public List<Album> searchReleaseAllASCAlbums(){
         return  albumMapper.searchReleaseAllASCAlbums();
     }

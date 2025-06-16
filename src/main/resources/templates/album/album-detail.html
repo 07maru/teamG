@@ -7,7 +7,7 @@
   }
 .album-title{
     font-size: 40px;
-    font-family:monospace;
+    font-family: sans-serif;
     font-weight: bold;
     display: inline;
     background: linear-gradient(transparent 85%, #c6b7d5 100%);
@@ -18,7 +18,7 @@
 
 .music-title{
    font-size: 34px;
-   font-family:monospace;
+   font-family: sans-serif;
    font-weight: bold;
    display: inline;
    background: linear-gradient(transparent 85%, #c6b7d5 100%);
@@ -94,7 +94,14 @@
     margin-right: 5px;
 }
 
+.add{
+  font-family:monospace;
+  
+}
 
+.return{
+  font-family:monospace;
+}
 
 
 
@@ -164,8 +171,8 @@
          </td>
     </tr>      
  </table>
- <a th:href="@{/albums/{albumId}/musics/new(albumId=${album.albumId})}"> 楽曲を追加</a>
- <a href="/albums">一覧に戻る</a>
+ <a class="add" th:href="@{/albums/{albumId}/musics/new(albumId=${album.albumId})}"> 楽曲を追加</a>
+ <a class="return" href="/albums">一覧に戻る</a>
  <div th:replace="~{layout :: footer}"></div>
  </body>
  </html>

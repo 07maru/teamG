@@ -5,6 +5,43 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+/*以下変更部分*/
+
+header{
+  margin-top: 10px;
+  font-family:monospace;
+  display: flex;
+  justify-content: space-between;
+}
+ul{
+  display: flex;
+  list-style: none;
+}
+li{
+  margin-top: 16px;
+  margin-right: 20px;
+  margin-left: 1em;
+}
+footer{
+  font-family:monospace;
+}
+button{
+  background-color: #c6b7d5;
+  color: #ffffff;
+  border-color: #ab93c4;
+  font-size: 24px;
+  border-radius:20px;
+  font-family: monospace;
+  margin: 10px auto 0;
+}
+p{
+  margin-top: 20px;
+  font-size: 36px;
+  font-family: monospace;
+}
+/*以上変更*/
+
 /* form の内側整理 */
 .card form {
   display: flex;

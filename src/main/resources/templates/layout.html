@@ -7,20 +7,30 @@
   <link rel="stylesheet" th:href="@{/css/sample.css}" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<style>
+  .logout{
+  background-color: #c6b7d5;
+   color: #ffffff;
+   border-color: #ab93c4;
+   font-size: 24px;
+   font-family: monospace;
+   margin: 5px auto 0;
+  }
+</style>
 <body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <div class="container">
 
     <div th:fragment="header">
       <header>
-        <h4>楽曲管理アプリ</h4>
+        <p class="app-title">楽曲管理アプリ</p>
         <ul>
           <li sec:authorize="isAuthenticated()"><a th:href="@{/albums}">アルバム一覧</a></li>
           <li sec:authorize="isAuthenticated()"><a th:href="@{/albums/new}">アルバム登録</a></li>
           <li sec:authorize="isAnonymous()"><a th:href="@{/register}">ユーザ登録</a></li>
           <li sec:authorize="isAuthenticated()">
             <form th:action="@{/logout}" method="post">
-              <button type="submit">ログアウト</button>
+              <button class="logout" type="submit">ログアウト🚪</button>
             </form>
           </li>
         </ul>

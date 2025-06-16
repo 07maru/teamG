@@ -86,7 +86,7 @@
         <button type="submit" class="btn-submit"> 登録</button>
     </div>
     </form>
-     <button type="button" class="btn-back" th:onclick="'location.href=\'' + @{/albums/{albumId}(albumId=${musicForm.albumId})} + '\''"> 戻る</button>
+     <a href="#" class="btn-link" th:href="@{/albums/{albumId}(albumId=${musicForm.albumId})}"> 戻る</a>
     <div th:replace="~{layout :: footer}"></div>
     </body>
     </html>

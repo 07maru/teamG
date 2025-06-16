@@ -19,12 +19,12 @@
 
 h3 {
   font-size: 40px;
-  font-family:monospace;
+  font-family: sans-serif;
   font-weight: bold;
   display: inline;
   background: linear-gradient(transparent 85%, #c6b7d5 100%);
   color: #79A1D4;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   text-align: center;
 }
 
@@ -43,7 +43,7 @@ input{
    border: 2px solid #9FBCDF;
    border-radius: 8px;
    box-sizing: border-box;
-   font-family: monospace;
+   font-family:cursive;
    color: #454545;
 }
 
@@ -63,8 +63,14 @@ input{
    cursor: pointer; 
 }
 
+.return{
+  font-family:monospace;
+}
+
 
 </style>
+
+
 
 <body>
     <div th:replace="~{layout :: header}"></div>
@@ -85,6 +91,6 @@ input{
         <button type="submit" class="btn-change">変更</button>
     </div>
     </form>
-    <a th:href="@{/albums/{albumId}(albumId=${music.albumId})}">アルバムに戻る</a>
+    <a  class="return" th:href="@{/albums/{albumId}(albumId=${music.albumId})}">アルバムに戻る</a>
     <div th:replace="~{layout :: footer}"></div>
 </body>

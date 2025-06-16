@@ -34,7 +34,8 @@
     margin-top: 5px;
     border-radius: 10px;
     box-sizing: border-box;
-    font-family: monospace;
+    font-family: cursive;
+    color: #454545;
   }
 
   .form-control{
@@ -57,7 +58,7 @@
   }
   h2 {
   font-size: 40px;
-  font-family:monospace;
+  font-family:sans-serif;
   font-weight: bold;
   display: inline;
   background: linear-gradient(transparent 85%, #c6b7d5 100%);
@@ -81,11 +82,11 @@
 
       <form th:action="@{/login}" method="post">
       <div>
-        <label for="username">👤Username</label>
+        <label for="username">👤Username:</label>
         <input type="text" id="username" name="username" class="form-control"/>
       </div>
       <div>
-        <label for="password">🔒Password</label>
+        <label for="password">🔒Password:</label>
         <input type="password" id="password" name="password" class="form-control" />
       </div>
         <button type="submit" class="btn-submit">Sign In</button>

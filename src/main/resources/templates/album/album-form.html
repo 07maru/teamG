@@ -18,7 +18,7 @@
 
    h3 {
     font-size: 40px;
-    font-family:monospace;
+    font-family: sans-serif;
     font-weight: bold;
     display: inline;
     background: linear-gradient(transparent 85%, #c6b7d5 100%);
@@ -29,6 +29,7 @@
     display: block;
     font-family:cursive;
     color: #79A1D4;
+   margin-top: 5px;
    }
 
   input[type="text"],
@@ -79,7 +80,7 @@
            <label for="release-date">📆リリース日：</label>
            <input type="date" id="release-date" name="release-date" th:field="*{releaseDate}">
        </div>
-       <button type="submit" class="submit-button">追加</button>
+       <button type="submit" class="submit-button">登録</button>
    </form>
    </div>
    <div th:replace="~{layout :: footer}"></div>

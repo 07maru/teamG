@@ -47,7 +47,18 @@ import org.apache.ibatis.annotations.Insert;
 
     @Select("SELECT * FROM albums WHERE title LIKE CONCAT('%', #{keyword}, '%') OR artist LIKE CONCAT('%',#{keyword}, '%') ORDER BY title DESC")
     List<Album> searchTitleDESCAlbumsbyKeyword(String keyword);
-   
+
+    @Select("SELECT * FROM albums ORDER BY release_date ASC")
+   List<Album> searchReleaseAllASCAlbums();
+
+   @Select("SELECT * FROM albums ORDER BY release_date DESC")
+   List<Album> searchReleaseAllDESCAlbums();
+
+   @Select("SELECT * FROM albums ORDER BY title ASC")
+   List<Album> searchTitleAllASCAlbums();
+
+   @Select("SELECT * FROM albums ORDER BY title DESC")
+   List<Album> searchTitleAllDESCAlbums();
  }
 
    

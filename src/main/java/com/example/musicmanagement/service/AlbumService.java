@@ -15,7 +15,20 @@ package com.example.musicmanagement.service;
        this.albumRepository = albumRepository;
    }
    
-   public List<Album> getAllAlbums() {
+   public List<Album> getAllAlbums(String sortBy, String sortOrder) {
+    if (sortBy.equals("release_date")) {
+        if (sortOrder.equals("asc")) {
+            return albumRepository.searchReleaseAllASCAlbums();
+        } else {
+            return albumRepository.searchReleaseAllDESCAlbums();
+        }
+    } else if (sortBy.equals("title")) {
+        if (sortOrder.equals("asc")) {
+            return albumRepository.searchTitleAllASCAlbums();
+        } else {
+            return albumRepository.searchTitleAllDESCAlbums();
+        }
+    }
        return albumRepository.getAllAlbums();
    }
 

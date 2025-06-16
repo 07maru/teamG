@@ -44,8 +44,8 @@ import org.springframework.web.bind.annotation.PostMapping;
        List<Album> albums;  
             if(keyword != null && !keyword.isEmpty()){
                 albums = albumService.searchAlbums(keyword, sortBy, sortOrder);
-            }else {
-                albums = albumService.getAllAlbums();
+            } else {
+                albums = albumService.getAllAlbums(sortBy, sortOrder);
             }
        model.addAttribute("albums", albums);    
        return "album/album-list";

@@ -83,9 +83,10 @@
         <div>
             <input type="hidden" name="albumId" th:field="*{albumId}">
         </div>
-        <button type="submit" class="btn-submit"> 追加</button>
+        <button type="submit" class="btn-submit"> 登録</button>
     </div>
     </form>
+     <button type="button" class="btn-back" th:onclick="'location.href=\'' + @{/albums/{albumId}(albumId=${musicForm.albumId})} + '\''"> 戻る</button>
     <div th:replace="~{layout :: footer}"></div>
     </body>
     </html>

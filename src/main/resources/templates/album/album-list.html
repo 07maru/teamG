@@ -139,6 +139,7 @@
       <select name="sortBy" class="form-control">
             <option value="release_date" th:selected="${param.sortBy?.toString() == 'release_date'}">リリース日</option>
             <option value="title" th:selected="${param.sortBy?.toString() == 'title'}">タイトル</option>
+            <option value="artist" th:selected="${param.sortBy?.toString() == 'artist'}">アーティスト</option>
         </select>
         <select name="sortOrder" class="form-control">
             <option value="asc" th:selected="${param.sortOrder?.toString() == 'asc'}">昇順</option>

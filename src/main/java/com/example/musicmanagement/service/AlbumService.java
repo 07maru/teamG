@@ -28,6 +28,12 @@ package com.example.musicmanagement.service;
         } else {
             return albumRepository.searchTitleAllDESCAlbums();
         }
+    } else if (sortBy.equals("artist")) {
+        if (sortOrder.equals("asc")) {
+            return albumRepository.searchArtistAllASCAlbums();
+        } else {
+            return albumRepository.searchArtistAllDESCAlbums();
+        }
     }
        return albumRepository.getAllAlbums();
    }

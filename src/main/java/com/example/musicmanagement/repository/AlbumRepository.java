@@ -53,5 +53,13 @@ package com.example.musicmanagement.repository;
     public List<Album> searchTitleAllDESCAlbums(){
         return  albumMapper.searchTitleAllDESCAlbums();
     }
+
+    public List<Album> searchArtistAllASCAlbums(){
+        return  albumMapper.searchArtistAllASCAlbums();
+    }
+
+    public List<Album> searchArtistAllDESCAlbums(){
+        return  albumMapper.searchArtistAllDESCAlbums();
+    }
  }
 

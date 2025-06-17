@@ -47,6 +47,12 @@ import org.apache.ibatis.annotations.Insert;
 
    @Select("SELECT * FROM albums ORDER BY title DESC")
    List<Album> searchTitleAllDESCAlbums();
+
+   @Select("SELECT * FROM albums ORDER BY artist ASC")
+   List<Album> searchArtistAllASCAlbums();
+
+   @Select("SELECT * FROM albums ORDER BY artist DESC")
+   List<Album> searchArtistAllDESCAlbums();
  }
 
    

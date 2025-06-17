@@ -35,11 +35,14 @@ button{
   font-family: monospace;
   margin: 10px auto 0;
 }
-p{
-  margin-top: 20px;
-  font-size: 36px;
-  font-family: monospace;
-}
+
+.app-title {
+    color: #678fc3;
+    font-size: 30px;
+    font-family: monospace;
+    font-weight: bold;
+    line-height: 100%;
+  }
 /*以上変更*/
 
 /* form の内側整理 */

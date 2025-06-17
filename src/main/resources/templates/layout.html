@@ -23,7 +23,10 @@
 
     <div th:fragment="header">
       <header>
-        <p class="app-title">楽曲管理アプリ</p>
+        <a th:href="@{/}" style="display: flex; align-items: center; text-decoration: none;">
+        <img src="/images/logo1.png" alt="楽曲管理アプリ ロゴ" style="height: 90px;width: 90px;">
+        <span class="app-title ms-2" >　サウンド<br>まねじめんと</span>
+        </a>
         <ul>
           <li sec:authorize="isAuthenticated()"><a th:href="@{/albums}">アルバム一覧</a></li>
           <li sec:authorize="isAuthenticated()"><a th:href="@{/albums/new}">アルバム登録</a></li>
@@ -43,7 +46,7 @@
     <div th:fragment="footer">
       <footer style="text-align: center;">
 
-        <h6>&copy; 楽曲管理アプリ</h6>
+        <h6>&copy; サウンドまねじめんと</h6>
       </footer>
     </div>
 

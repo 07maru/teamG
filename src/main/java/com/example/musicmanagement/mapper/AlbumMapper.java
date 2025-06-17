@@ -33,7 +33,7 @@ import org.apache.ibatis.annotations.Insert;
     void updateAlbum(Album album);
 
     //キーワードでタイトルまたはアーティスト名を検索
-    @Select("SELECT * FROM albums WHERE title LIKE CONCAT('%', #{keyword}, '%') OR artist LIKE CONCAT('%',#{keyword}, '%')")
+    @Select("SELECT * FROM albums WHERE title LIKE CONCAT('%', #{keyword}, '%') OR artist LIKE CONCAT('%',#{keyword}, '%') OR release_date LIKE CONCAT ('%',#{keyword}, '%')")
     List<Album> searchAlbumsbyKeyword(String keyword);
 
     @Select("SELECT * FROM albums ORDER BY release_date ASC")

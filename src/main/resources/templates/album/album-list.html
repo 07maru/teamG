@@ -131,7 +131,7 @@
    <div th:replace="~{layout :: header}"></div>
    <h3>🎵 アルバム一覧 🎵</h3>
     <form method="get" th:action="@{/albums}" class="search-form">
-        <input type ="text" name = "keyword" th:value="${keyword}" placeholder="タイトルまたはアーティスト名で検索">
+        <input type ="text" name = "keyword" th:value="${keyword}" placeholder="">
 
         <button class="button1" type="submit">🔍検索</button>
     </form>
